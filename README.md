@@ -20,7 +20,7 @@ if you need to do anything that has been done before here.
 #### *This Simple project build with*
 - Java programming language
 - Selenium framework
-- TestNG  runner framework
+- TestNG  test runner framework
 - Maven
 
 

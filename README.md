@@ -15,7 +15,8 @@ if you need to do anything that has been done before here.
 - You can run tests throughout "will add details soon" class from (will add details soon).
 
 
-### *3 - Project Structure*
+### *3 - Project Architecture*
+- This project has been created with POM design pattern and we will describe each file here in the future.
 
 ### *4 - This Simple project has been built using*
 - Java programming language

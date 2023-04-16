@@ -13,7 +13,7 @@ public class BaseTest extends Base
     @BeforeSuite
     public void BeforeSuite()
     {
-
+        launchBrowser();
     }
 
     @BeforeTest
@@ -56,6 +56,6 @@ public class BaseTest extends Base
     @AfterSuite
     public void AfterSuite()
     {
-
+        closeBrowser();
     }
 }

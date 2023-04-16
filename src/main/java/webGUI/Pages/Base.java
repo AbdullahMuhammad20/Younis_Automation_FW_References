@@ -1,10 +1,8 @@
 package webGUI.Pages;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -16,6 +14,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.time.Duration;
+import java.util.Date;
 import java.util.List;
 import java.util.Properties;
 import java.util.Random;
@@ -99,6 +98,11 @@ public class Base
         driver.get(properties.getProperty("webGUI-URL"));
     }
 
+    public void closeBrowser()
+    {
+        driver.quit();
+    }
+
     // Start to handle functions to get all elements and make sure if list of products is not empty and
     public void selectRandomElement(By elementList)
     {
@@ -122,4 +126,23 @@ public class Base
             System.out.println("list of Elements is empty");
         }
     }
+
+    public void takeScreenShot() throws IOException
+    {
+        Random random = new Random();
+        Date date = new Date();
+        try
+        {
+            //Call getScreenshotAs method to create image file
+            File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+
+            // Save SS after take it in the provided destination path
+            FileUtils.copyFile(scrFile, new File(properties.getProperty("SSPath") + random.nextInt() + date.getTime() + ".jpg"));
+        }
+        catch (IOException e)
+        {
+            System.out.println(e.getMessage());
+        }
+    }
+
 }
